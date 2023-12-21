@@ -141,12 +141,19 @@ function App() {
     setOrder(newOrder)
   }
   function deleteContact(id) {
-    const indexToDelete = contacts.findIndex(contact => contact.id === id)
-    const updatedContacts = contacts.slice()
+    // Step 1: Create a deep copy of the 'contacts' array
+    const updatedContacts = JSON.parse(JSON.stringify(contacts))
+
+    // Step 2: Find the index of the contact with the given id in the copied array
+    const indexToDelete = updatedContacts.findIndex(contact => contact.id === id)
+
+    // Step 3: Remove the contact at the found index from the copied array
     updatedContacts.splice(indexToDelete, 1)
 
+    // Step 4: Update the state with the modified 'updatedContacts' array
     setContacts(updatedContacts)
   }
+
   return (
     <div className='App'>
       <h1>LAB | React IronContacts</h1>
