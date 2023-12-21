@@ -4,7 +4,9 @@
   padding: 2rem;
   text-align: center;
 }
-
+.img{
+  height: 200px;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
